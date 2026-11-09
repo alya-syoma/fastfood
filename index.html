@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Дмитро Барс — відкриття закладів під ключ</title>
+<title>Відкрито — заклади під ключ</title>
 <meta name="description" content="Відкриваємо заклади фастфуду, кафе, кавʼярні та піцерії під ключ по всій Україні. Бренд-шеф з досвідом з 2012 року, 20+ запущених закладів. Від бізнес-плану до першого гостя за 1,5–3 місяці.">
-<meta property="og:title" content="Відкриття закладів фастфуду під ключ — Chef Dmitriy Bars">
+<meta property="og:title" content="Відкриття закладів фастфуду під ключ — Відкрито">
 <meta property="og:description" content="20+ запущених закладів. Концепція, меню, обладнання, персонал, відкриття та місяць супроводу.">
 <meta property="og:image" content="img/chef.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 44%27%3E%3Crect x=%272%27 y=%2716%27 width=%2760%27 height=%2726%27 rx=%277%27 fill=%27%23ff6a2b%27/%3E%3Cpath d=%27M32 4L11 18M32 4l21 14%27 stroke=%27%23ff6a2b%27 stroke-width=%273%27 fill=%27none%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -55,8 +56,10 @@ h2 em,h1 em{font-style:normal;color:var(--accent)}
 header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s,padding .4s;padding:22px 0}
 header.scrolled{background:rgba(13,12,11,.78);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{font-family:var(--h);font-weight:800;font-size:22px;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
-.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+.logo{font-family:var(--h);font-weight:800;font-size:20px;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.logo-sign{width:40px;height:28px;color:var(--cream);flex:none;transform-origin:50% 10%;animation:swing 4s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.logo:hover .logo-sign{animation-duration:1s}
 .logo small{font-family:var(--b);font-weight:500;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;line-height:1.2}
 .menu{display:flex;gap:30px;font-size:15px;color:var(--muted)}
 .menu a{position:relative;transition:color .3s}
@@ -135,15 +138,21 @@ header.scrolled{background:rgba(13,12,11,.78);backdrop-filter:blur(14px);padding
 
 /* services */
 .svc-head{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap}
-.svc{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.svc-item{padding:32px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;transition:color .4s;min-height:170px}
-.svc-item::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .55s var(--ease)}
-.svc-item:hover::before{transform:none}
-.svc-item>*{position:relative}
-.svc-item .n{font-family:var(--h);font-size:13px;color:var(--accent);transition:color .4s}
-.svc-item h3{font-size:18px;margin:14px 0 8px;line-height:1.3}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px;position:relative;isolation:isolate;padding:0 56px}
+.svc-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.svc-line path{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc-line .bg{stroke:rgba(243,237,228,.12);stroke-dasharray:4 7}
+.svc-line .fg{stroke:var(--accent);filter:drop-shadow(0 0 6px rgba(255,106,43,.6))}
+.svc-item{padding:28px 26px 34px;position:relative;border-radius:20px;overflow:hidden;transition:color .4s;min-height:200px}
+.svc-item::before{content:"";position:absolute;inset:8px;border-radius:18px;background:var(--accent);transform:scale(.9);opacity:0;transition:transform .5s var(--ease),opacity .4s;z-index:0}
+.svc-item:hover::before{transform:none;opacity:1}
+.svc-item>*{position:relative;z-index:2}
+.svc-item .n{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--bg);border:2px solid rgba(243,237,228,.18);font-family:var(--h);font-size:13px;color:var(--muted);transition:all .5s var(--ease);margin-bottom:22px}
+.svc-item.on .n{background:var(--accent);border-color:var(--accent);color:#140b05;box-shadow:0 0 0 7px rgba(255,106,43,.15)}
+.svc-item:hover .n{background:#140b05;border-color:#140b05;color:var(--accent);box-shadow:none}
+.svc-item h3{font-size:18px;margin:0 0 8px;line-height:1.3}
 .svc-item p{font-size:14.5px;color:var(--muted);transition:color .4s}
-.svc-item:hover,.svc-item:hover .n,.svc-item:hover p{color:#140b05}
+.svc-item:hover,.svc-item:hover p{color:#140b05}
 .note{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--radius);background:var(--card);border:1px dashed rgba(255,106,43,.45)}
 .note p{flex:1;min-width:240px;color:var(--cream)}
 .note p b{color:var(--accent-2)}
@@ -276,6 +285,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 .float-cta::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);animation:ping 2s infinite}
 @keyframes ping{to{transform:scale(1.6);opacity:0}}
 
+.to-top{position:fixed;right:28px;bottom:96px;z-index:60;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:rgba(27,25,22,.85);backdrop-filter:blur(10px);color:var(--cream);display:grid;place-items:center;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .4s,transform .4s var(--ease),color .3s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{color:var(--accent)}
+.to-top:hover svg:first-child{transform:translateY(-3px)}
+.to-top svg:first-child{transition:transform .3s var(--ease)}
+.to-top .ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.to-top .ring circle{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:150.8;stroke-dashoffset:150.8}
+.to-top.alone{bottom:28px}
+
 /* responsive */
 @media (max-width:1080px){
   .menu,.nav>.btn{display:none}
@@ -284,7 +302,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   .hero-grid,.about-grid,.calc,.cmp,.faq-grid,.contact-box{grid-template-columns:1fr}
   .hero-photo{justify-self:center;margin-top:20px}
   .grid-4{grid-template-columns:1fr 1fr}
-  .svc{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:1fr 1fr;padding:0 40px}
   .case.big,.case.mid{grid-column:span 12;min-height:460px}
   .case.third{grid-column:span 6}
   .about-photo{max-width:520px}
@@ -301,8 +319,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   .stat+.stat{padding-left:16px}
   .stat:nth-child(3){padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .stat:nth-child(4){border-top:1px solid var(--line)}
-  .grid-4,.svc{grid-template-columns:1fr}
-  .svc-item{min-height:0}
+  .grid-4{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr;padding:0}
+  .svc-item{min-height:0;padding:18px 10px 18px 72px}
+  .svc-item .n{position:absolute;left:10px;top:14px;margin:0}
+  .svc-item::before{inset:4px}
   .case.third{grid-column:span 12;min-height:360px}
   .about-photo .mini{right:-6px;bottom:-30px}
   .step{grid-template-columns:48px 1fr;gap:18px;padding:24px 0}
@@ -330,7 +351,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#top" class="logo"><i></i><div>BARS<small>Відкриття закладів під ключ</small></div></a>
+    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 64 44" aria-hidden="true"><circle cx="32" cy="4" r="3" fill="currentColor"/><path d="M32 4L11 18M32 4l21 14" stroke="currentColor" stroke-width="2.2" fill="none"/><rect x="2" y="16" width="60" height="26" rx="7" fill="#ff6a2b"/><path d="M14 29h36" stroke="#140b05" stroke-width="4" stroke-linecap="round"/></svg><div>ВІДКРИТО<small>заклади під ключ</small></div></a>
     <nav class="menu" id="menu">
       <a href="#about">Про мене</a>
       <a href="#services">Що входить</a>
@@ -350,7 +371,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow reveal">Chef Dmitriy Bars · з 2012 року в HoReCa</span>
+      <span class="eyebrow reveal">Шеф Дмитро Барсук · з 2012 року в HoReCa</span>
       <h1>
         <span class="mask"><span>Відкриємо ваш</span></span>
         <span class="mask"><span>заклад <em>фастфуду</em></span></span>
@@ -363,7 +384,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       </div>
     </div>
     <div class="hero-photo reveal" data-d="2">
-      <div class="frame"><img id="heroImg" src="img/chef.webp" alt="Бренд-шеф Дмитро Барс"></div>
+      <div class="frame"><img id="heroImg" src="img/chef.webp" alt="Бренд-шеф Дмитро Барсук"></div>
       <div class="badge b1"><b>20+</b>закладів<br>запущено</div>
       <div class="badge b2"><b>1,5</b>місяці — від<br>старту до відкриття</div>
       <svg class="spin" viewBox="0 0 130 130" aria-hidden="true">
@@ -424,12 +445,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="about-photo reveal">
-      <div class="main"><img src="img/chef.webp" alt="Дмитро Барс у кітелі шефа" loading="lazy"></div>
+      <div class="main"><img src="img/chef.webp" alt="Дмитро Барсук у кітелі шефа" loading="lazy"></div>
       <div class="mini"><img src="img/duck.webp" alt="Качка з грушею в червоному вині" loading="lazy"></div>
     </div>
     <div>
       <span class="eyebrow reveal">Про мене</span>
-      <h2 class="reveal">Дмитро Барс.<br>Бренд-шеф, який <em>сам</em> керує рестораном</h2>
+      <h2 class="reveal">Дмитро Барсук.<br>Бренд-шеф, який <em>сам</em> керує рестораном</h2>
       <p class="lead reveal">Я не теоретик і не продавець франшиз. Щодня працюю в закладі, який сам відкрив з нуля, — і знаю, що відбувається на кухні, в залі та в касі.</p>
       <ul class="facts reveal">
         <li><b>2012</b><span>Початок роботи в громадському харчуванні</span></li>
@@ -438,7 +459,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <li><b>Зараз</b><span>Бренд-шеф і керуючий ресторану Grey Stone, відкритого з нуля, — успішно працює вже 2 роки</span></li>
         <li><b>Географія</b><span>Від Харкова до Кіровоградщини — працюємо по всій Україні</span></li>
       </ul>
-      <div class="quote reveal">«Я відкриваю заклади не заради відкриття, а заради репутації. І роблю це з душею — бо люблю свою справу.»<small>— Дмитро Барс</small></div>
+      <div class="quote reveal">«Я відкриваю заклади не заради відкриття, а заради репутації. І роблю це з душею — бо люблю свою справу.»<small>— Дмитро Барсук</small></div>
     </div>
   </div>
 </section>
@@ -622,7 +643,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </ul>
       </div>
       <div class="cmp-col us reveal" data-d="1">
-        <h3>Під ключ з Дмитром Барсом</h3>
+        <h3>«Відкрито» з Дмитром Барсуком</h3>
         <ul>
           <li><i>✓</i>Разова оплата послуг — весь прибуток лишається вам</li>
           <li><i>✓</i>Власний бренд і концепція під вашу локацію та аудиторію</li>
@@ -675,7 +696,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       </div>
       <form id="form" novalidate>
         <div class="field"><input id="f-name" name="name" placeholder=" " required><label for="f-name">Ваше імʼя</label></div>
-        <div class="field"><input id="f-tel" name="phone" type="tel" placeholder=" " required><label for="f-tel">Телефон</label></div>
+        <div class="field"><input id="f-tel" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="19" placeholder=" " required><label for="f-tel">Телефон</label></div>
         <div class="field"><select id="f-fmt" name="format">
           <option>Фастфуд / стрітфуд</option><option>Шаурма</option><option>Бургерна</option><option>Піцерія</option><option>Суші</option><option>Кавʼярня</option><option>Пекарня / кондитерська</option><option>Dark kitchen</option><option>Кафе / ресторан</option><option>Перезапуск діючого закладу</option><option>Ще не визначився</option>
         </select><label for="f-fmt">Формат</label></div>
@@ -691,12 +712,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo"><i></i>BARS</a>
+    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 64 44" aria-hidden="true"><circle cx="32" cy="4" r="3" fill="currentColor"/><path d="M32 4L11 18M32 4l21 14" stroke="currentColor" stroke-width="2.2" fill="none"/><rect x="2" y="16" width="60" height="26" rx="7" fill="#ff6a2b"/><path d="M14 29h36" stroke="#140b05" stroke-width="4" stroke-linecap="round"/></svg><div>ВІДКРИТО</div></a>
     <span>Відкриття закладів громадського харчування під ключ · Україна</span>
-    <span>© 2026 Chef Dmitriy Bars</span>
+    <span>© 2026 Відкрито · шеф Дмитро Барсук</span>
   </div>
 </footer>
 
+<button class="to-top" id="toTop" aria-label="Нагору"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg><svg class="ring" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/></svg></button>
 <a href="#contact" class="float-cta" id="fcta" aria-label="Залишити заявку">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
 </a>
@@ -722,7 +744,58 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     ['Просування і відкриття','Розігрів до старту, тестові дні, гучне відкриття'],
   ];
   const box = document.getElementById('svc');
-  box.innerHTML = svc.map((s,i)=>`<div class="svc-item reveal" data-d="${i%3}"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+  box.innerHTML = svc.map((s,i)=>`<div class="svc-item"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('')
+    + '<svg class="svc-line" aria-hidden="true"><path class="bg"/><path class="fg"/></svg>';
+  const items=[...box.querySelectorAll('.svc-item')], pBg=box.querySelector('.bg'), pFg=box.querySelector('.fg');
+  let marks=[], total=0, drawn=0, target=0;
+  const layoutSnake=()=>{
+    const cols=getComputedStyle(box).gridTemplateColumns.split(' ').length;
+    items.forEach((el,i)=>{const r=Math.floor(i/cols), c=i%cols;
+      el.style.gridRow=r+1; el.style.gridColumn=(r%2? cols-c : c+1);});
+    const B=box.getBoundingClientRect();
+    const pts=items.map(el=>{const n=el.querySelector('.n').getBoundingClientRect();return [n.left+n.width/2-B.left,n.top+n.height/2-B.top]});
+    // build vertices: circles + U-turns outside the cards
+    const V=[], isC=[]; const edge=cols>1?22:0;
+    pts.forEach((p,i)=>{V.push(p);isC.push(true);
+      const r=Math.floor(i/cols);
+      if(cols>1 && (i+1)%cols===0 && i<pts.length-1){
+        const x=(r%2===0)? B.width-edge : edge, ny=pts[i+1][1];
+        V.push([x,p[1]],[x,ny]);isC.push(false,false);}
+    });
+    // rounded polyline
+    const R=26; let d=`M${V[0][0]},${V[0][1]}`; const segD=[d];
+    for(let i=1;i<V.length;i++){
+      const [x,y]=V[i], prev=V[i-1], next=V[i+1];
+      const turn=next && ((prev[0]===x)!==(next[0]===x));
+      if(turn){
+        const dx1=Math.sign(x-prev[0]),dy1=Math.sign(y-prev[1]),dx2=Math.sign(next[0]-x),dy2=Math.sign(next[1]-y);
+        const r=Math.min(R,Math.abs(next[1]-y)/2||R,Math.abs(y-prev[1])/2||R);
+        d+=` L${x-dx1*r},${y-dy1*r} Q${x},${y} ${x+dx2*r},${y+dy2*r}`;
+      } else d+=` L${x},${y}`;
+      segD.push(d);
+    }
+    pBg.setAttribute('d',d); pFg.setAttribute('d',d);
+    marks=[];
+    V.forEach((v,i)=>{ if(!isC[i]) return; pFg.setAttribute('d',segD[i]); marks.push(i?pFg.getTotalLength():0); });
+    pFg.setAttribute('d',d); total=pFg.getTotalLength();
+    pFg.style.strokeDasharray=total; drawn=Math.min(drawn,total); pFg.style.strokeDashoffset=total-drawn;
+  };
+  const snakeScroll=()=>{
+    const r=box.getBoundingClientRect(), vh=innerHeight;
+    const p=Math.max(0,Math.min(1,(vh*.75-r.top)/(r.height+vh*.15)));
+    target=p*total;
+  };
+  const tickSnake=()=>{
+    drawn+= (target-drawn)*.12;
+    if(Math.abs(target-drawn)<.5) drawn=target;
+    pFg.style.strokeDashoffset=total-drawn;
+    items.forEach((el,i)=>el.classList.toggle('on',marks[i]<=drawn+1));
+    requestAnimationFrame(tickSnake);
+  };
+  layoutSnake(); snakeScroll(); requestAnimationFrame(tickSnake);
+  addEventListener('scroll',snakeScroll,{passive:true});
+  let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{layoutSnake();snakeScroll()},120)});
+  document.fonts && document.fonts.ready.then(()=>{layoutSnake();snakeScroll()});
 
   // Loaded state for hero mask animation
   requestAnimationFrame(()=>setTimeout(()=>document.body.classList.add('loaded'),80));
@@ -746,6 +819,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   }));
 
   // Header, float button, parallax, process line
+  const tt=document.getElementById('toTop'), ring=tt.querySelector('.ring circle');
+  tt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   const hdr=document.getElementById('hdr'), f=document.getElementById('fcta'), img=document.getElementById('heroImg');
   const steps=document.getElementById('steps'), fill=document.getElementById('fill'), stepEls=[...steps.querySelectorAll('.step')];
   const onScroll=()=>{
@@ -753,6 +828,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     hdr.classList.toggle('scrolled',y>40);
     const nearForm=document.getElementById('contact').getBoundingClientRect().top<innerHeight;
     f.classList.toggle('show',y>innerHeight*.9 && !nearForm);
+    tt.classList.toggle('show',y>innerHeight*.9); tt.classList.toggle('alone',!f.classList.contains('show'));
+    ring.style.strokeDashoffset=150.8*(1-y/Math.max(1,document.documentElement.scrollHeight-innerHeight));
     if(y<innerHeight) img.style.translate=`0 ${y*-.08}px`;
     const r=steps.getBoundingClientRect(), mid=innerHeight*.6;
     const h=Math.max(0,Math.min(r.height,mid-r.top));
@@ -784,13 +861,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   tabs.forEach(t=>t.addEventListener('click',()=>{range.value=t.dataset.a;upd(+t.dataset.a)}));
   upd(30);
 
+  // Phone mask: +380 (XX) XXX-XX-XX
+  const tel=document.getElementById('f-tel');
+  const telDigits=v=>{
+    let d=(v.startsWith('+380')? v.slice(4) : v).replace(/\D/g,'');
+    if(d.startsWith('380')) d=d.slice(3); else if(d.startsWith('80')) d=d.slice(2);
+    return d.replace(/^0+/,'').slice(0,9)};
+  const telFmt=d=>{let o='+380';if(!d.length) return o+' ';
+    o+=' ('+d.slice(0,2); if(d.length>=2) o+=')';
+    if(d.length>2) o+=' '+d.slice(2,5); if(d.length>5) o+='-'+d.slice(5,7); if(d.length>7) o+='-'+d.slice(7,9); return o};
+  tel.addEventListener('focus',()=>{if(!tel.value) tel.value='+380 '});
+  tel.addEventListener('blur',()=>{if(!telDigits(tel.value).length) tel.value=''});
+  tel.addEventListener('input',()=>{tel.value=telFmt(telDigits(tel.value))});
+  tel.addEventListener('keydown',e=>{ // backspace through formatting chars
+    if(e.key==='Backspace' && tel.selectionStart===tel.value.length){
+      const d=telDigits(tel.value); if(d.length){e.preventDefault();tel.value=telFmt(d.slice(0,-1))}}
+  });
+
   // Form (підключити до Telegram-бота / CRM)
   const form=document.getElementById('form');
   form.addEventListener('submit',e=>{
     e.preventDefault();
-    const F=form.elements, n=F['name'].value.trim(), p=F['phone'].value.replace(/\D/g,'');
-    F['name'].style.borderColor=n?'':'#ff4d4d'; F['phone'].style.borderColor=p.length>=9?'':'#ff4d4d';
-    if(!n||p.length<9) return;
+    const F=form.elements, n=F['name'].value.trim(), p=telDigits(F['phone'].value);
+    F['name'].style.borderColor=n?'':'#ff4d4d'; F['phone'].style.borderColor=p.length===9?'':'#ff4d4d';
+    if(!n||p.length!==9) return;
     // TODO: fetch('/send.php',{method:'POST',body:new FormData(form)})
     form.classList.add('sent');
   });
