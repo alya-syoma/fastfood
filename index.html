@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Відкрито — заклади під ключ</title>
+<title>Бюро ресторанних рішень — заклади під ключ</title>
 <meta name="description" content="Відкриваємо заклади фастфуду, кафе, кавʼярні та піцерії під ключ по всій Україні. Бренд-шеф з досвідом з 2012 року, 20+ запущених закладів. Від бізнес-плану до першого гостя за 1,5–3 місяці.">
-<meta property="og:title" content="Відкриття закладів фастфуду під ключ — Відкрито">
+<meta property="og:title" content="Відкриття закладів фастфуду під ключ — Бюро ресторанних рішень">
 <meta property="og:description" content="20+ запущених закладів. Концепція, меню, обладнання, персонал, відкриття та місяць супроводу.">
 <meta property="og:image" content="img/chef.webp">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 44%27%3E%3Crect x=%272%27 y=%2716%27 width=%2760%27 height=%2726%27 rx=%277%27 fill=%27%23ff6a2b%27/%3E%3Cpath d=%27M32 4L11 18M32 4l21 14%27 stroke=%27%23ff6a2b%27 stroke-width=%273%27 fill=%27none%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 60%27%3E%3Cpath d=%27M26 2c10 14 20 22 20 36a22 22 0 01-44 0c0-10 6-16 10-20 0 8 4 12 8 12 0-12-4-20 6-28z%27 fill=%27%23ff6a2b%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,9 +57,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,
 header.scrolled{background:rgba(13,12,11,.78);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-family:var(--h);font-weight:800;font-size:20px;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
-.logo-sign{width:40px;height:28px;color:var(--cream);flex:none;transform-origin:50% 10%;animation:swing 4s ease-in-out infinite}
-@keyframes swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-.logo:hover .logo-sign{animation-duration:1s}
+.logo-sign{width:26px;height:33px;flex:none;transform-origin:50% 100%;animation:flicker 2.4s ease-in-out infinite}
+@keyframes flicker{0%,100%{transform:scale(1) rotate(0)}25%{transform:scale(1.04,.97) rotate(-2deg)}50%{transform:scale(.97,1.05) rotate(1.5deg)}75%{transform:scale(1.02,.98) rotate(-1deg)}}
+.logo:hover .logo-sign{animation-duration:.8s}
+.logo small{letter-spacing:.06em!important;text-transform:none!important;font-size:12.5px!important}
 .logo small{font-family:var(--b);font-weight:500;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;line-height:1.2}
 .menu{display:flex;gap:30px;font-size:15px;color:var(--muted)}
 .menu a{position:relative;transition:color .3s}
@@ -351,7 +352,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 64 44" aria-hidden="true"><circle cx="32" cy="4" r="3" fill="currentColor"/><path d="M32 4L11 18M32 4l21 14" stroke="currentColor" stroke-width="2.2" fill="none"/><rect x="2" y="16" width="60" height="26" rx="7" fill="#ff6a2b"/><path d="M14 29h36" stroke="#140b05" stroke-width="4" stroke-linecap="round"/></svg><div>ВІДКРИТО<small>заклади під ключ</small></div></a>
+    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 48 60" aria-hidden="true"><path d="M26 2c10 14 20 22 20 36a22 22 0 01-44 0c0-10 6-16 10-20 0 8 4 12 8 12 0-12-4-20 6-28z" fill="#ff6a2b"/><path d="M24 34c4 5 8 8 8 13a8 8 0 01-16 0c0-4 3-7 5-8 0 3 1 4 3 4 0-4-1-6 0-9z" fill="#ffb27a"/></svg><div>БЮРО<small>ресторанних рішень</small></div></a>
     <nav class="menu" id="menu">
       <a href="#about">Про мене</a>
       <a href="#services">Що входить</a>
@@ -643,7 +644,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </ul>
       </div>
       <div class="cmp-col us reveal" data-d="1">
-        <h3>«Відкрито» з Дмитром Барсуком</h3>
+        <h3>Бюро ресторанних рішень</h3>
         <ul>
           <li><i>✓</i>Разова оплата послуг — весь прибуток лишається вам</li>
           <li><i>✓</i>Власний бренд і концепція під вашу локацію та аудиторію</li>
@@ -712,9 +713,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 64 44" aria-hidden="true"><circle cx="32" cy="4" r="3" fill="currentColor"/><path d="M32 4L11 18M32 4l21 14" stroke="currentColor" stroke-width="2.2" fill="none"/><rect x="2" y="16" width="60" height="26" rx="7" fill="#ff6a2b"/><path d="M14 29h36" stroke="#140b05" stroke-width="4" stroke-linecap="round"/></svg><div>ВІДКРИТО</div></a>
+    <a href="#top" class="logo"><svg class="logo-sign" viewBox="0 0 48 60" aria-hidden="true"><path d="M26 2c10 14 20 22 20 36a22 22 0 01-44 0c0-10 6-16 10-20 0 8 4 12 8 12 0-12-4-20 6-28z" fill="#ff6a2b"/><path d="M24 34c4 5 8 8 8 13a8 8 0 01-16 0c0-4 3-7 5-8 0 3 1 4 3 4 0-4-1-6 0-9z" fill="#ffb27a"/></svg><div>БЮРО<small>ресторанних рішень</small></div></a>
     <span>Відкриття закладів громадського харчування під ключ · Україна</span>
-    <span>© 2026 Відкрито · шеф Дмитро Барсук</span>
+    <span>© 2026 Бюро ресторанних рішень · шеф Дмитро Барсук</span>
   </div>
 </footer>
 
