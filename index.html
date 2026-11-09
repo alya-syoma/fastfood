@@ -78,7 +78,9 @@ header.scrolled{background:rgba(13,12,11,.78);backdrop-filter:blur(14px);padding
 .hero::after{content:"";position:absolute;width:900px;height:900px;right:-200px;top:-100px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,43,.22),transparent 60%);filter:blur(30px);pointer-events:none;animation:glow 9s ease-in-out infinite alternate}
 @keyframes glow{to{transform:translate(-120px,80px) scale(1.15)}}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;flex:1;position:relative;z-index:2}
-.hero h1{font-size:clamp(60px,8.6vw,128px);margin:22px 0 28px;font-weight:900}
+.hero-text{container-type:inline-size;min-width:0}
+.hero h1{font-size:clamp(40px,6.4vw,112px);font-size:clamp(40px,13.6cqi,124px);margin:22px 0 28px;font-weight:900}
+.hero h1 .mask{white-space:nowrap}
 .hero .lead{margin-bottom:40px}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
 .hero-photo{position:relative;justify-self:end;width:100%;max-width:470px}
@@ -371,7 +373,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-text">
       <span class="eyebrow reveal">Шеф Дмитро Барсук · з 2012 року в HoReCa</span>
       <h1>
         <span class="mask"><span>Відкриємо ваш</span></span>
